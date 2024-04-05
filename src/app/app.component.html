@@ -1,0 +1,32 @@
+<p>Hello every one my name is {{name}}</p>
+<p>{{user.name}}</p>
+<p>{{user.age}}</p>
+<input type="text" [value]="user.name">
+<button type="button" (click)="handler()">Click me</button>
+<br><br/>
+<input type="text" [(ngModel)]="name" > Enter Name 
+<br><br/>
+<input type="checkbox" [(ngModel)]="flag"> Is show user ?
+<br><br/>
+
+<!-- list user -->
+<p>Show users:</p>
+<!-- <div [class]="['box','yellow-background', 'red-border']"></div> -->
+<div [class]="['box','yellow-background', 'red-border']" [style.font-size]="'20px' ">
+    <ng-template [ngIf]="flag">
+        <ng-template ngFor [ngForOf]="users" let-user>
+            <div>
+                <ng-template [ngIf]="user.age > 70">
+                    Grand father {{user.name}}, {{user.age}} year old
+                </ng-template>
+                <ng-template [ngIf]="user.age < 70">
+                    {{user.age < 70 ? 'Miss grant' : 'Mr'}} {{user.name}}, {{user.age}} year old
+                </ng-template>
+            </div>
+        </ng-template>
+    </ng-template>
+</div>
+=====================================
+<br><br/>
+<button type="button" (click)="increase()">Increase</button>
+<app-progress-bar [progress]="progress" [progressColor]="'gray'" [backgroundColor]="'red'"></app-progress-bar>
