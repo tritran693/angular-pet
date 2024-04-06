@@ -15,18 +15,16 @@
 <div [class]="['box','yellow-background', 'red-border']" [style.font-size]="'20px' ">
     <ng-template [ngIf]="flag">
         <ng-template ngFor [ngForOf]="users" let-user>
-            <div>
-                <ng-template [ngIf]="user.age > 70">
-                    Grand father {{user.name}}, {{user.age}} year old
-                </ng-template>
-                <ng-template [ngIf]="user.age < 70">
-                    {{user.age < 70 ? 'Miss grant' : 'Mr'}} {{user.name}}, {{user.age}} year old
-                </ng-template>
-            </div>
+            <app-user [user]="user" (select)="handleSelectUser($event)" (delete)="handleDeleteUser($event)"></app-user>
         </ng-template>
     </ng-template>
+    <p>User select: {{currentUser?.name}}</p>
 </div>
 =====================================
 <br><br/>
 <button type="button" (click)="increase()">Increase</button>
-<app-progress-bar [progress]="progress" [progressColor]="'gray'" [backgroundColor]="'red'"></app-progress-bar>
+<app-progress-bar [progress]="progress" [progressColor]="'#000080'" [backgroundColor]="'gray'"></app-progress-bar>
+=====================================
+<app-toggle #appToggle [(checked)]="checked"></app-toggle>
+<p>is check {{checked}}</p>
+<button type="button" (click)="appToggle.toggle()">Toggle now</button>

@@ -1,0 +1,10 @@
+<div>
+    <ng-template [ngIf]="user.age > 70">
+        Grand father {{user.name}}, {{user.age}} year old
+    </ng-template>
+    <ng-template [ngIf]="user.age < 70">
+        {{user.age < 70 ? 'Miss grant' : 'Mr'}} {{user.name}}, {{user.age}} year old
+    </ng-template>
+    <button style="margin-left: 5px;" (click)="handleSelect()">Select</button>
+    <button style="margin-left: 5px;" (click)="handleDelete()">x</button>
+</div>
