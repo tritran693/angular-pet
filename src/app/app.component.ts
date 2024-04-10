@@ -28,6 +28,8 @@ export class AppComponent {
   progress=30;
   currentUser: User = this.users[0];
   checked=false;
+  counter = 1;
+  links = ['Active', 'Link1', 'Link3'];
 
   // function
 

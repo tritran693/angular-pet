@@ -18,13 +18,52 @@
             <app-user [user]="user" (select)="handleSelectUser($event)" (delete)="handleDeleteUser($event)"></app-user>
         </ng-template>
     </ng-template>
-    <p>User select: {{currentUser?.name}}</p>
+    <p>User select: {{currentUser.name}}</p>
 </div>
 =====================================
 <br><br/>
 <button type="button" (click)="increase()">Increase</button>
 <app-progress-bar [progress]="progress" [progressColor]="'#000080'" [backgroundColor]="'gray'"></app-progress-bar>
 =====================================
-<app-toggle #appToggle [(checked)]="checked"></app-toggle>
+<app-toggle #appToggle [(checked)]="checked">
+    <h1>Hảo sụa</h1>
+    <p>Hảo sụa2</p>
+</app-toggle>
 <p>is check {{checked}}</p>
 <button type="button" (click)="appToggle.toggle()">Toggle now</button>
+
+<app-toggle #appToggle [(checked)]="checked">
+    <h1>Siu</h1>
+    <p>Siu2</p>
+</app-toggle>
+<p>is check {{checked}}</p>
+
+========================================
+<div class="card">
+    <div class="card-header">
+        <div [ngTemplateOutlet]="counterTemplate" [ngTemplateOutletContext]="{buttonText: 'a'}"></div>
+    </div>
+    <div class="card-body">
+        <ng-container [ngTemplateOutlet]="counterTemplate" [ngTemplateOutletContext]="{buttonText: 'b'}"></ng-container>
+    </div>
+    <div class="card-footer">
+      <ng-container [ngTemplateOutlet]="counterTemplate" [ngTemplateOutletContext]="{buttonText: 'c'}"></ng-container>
+    </div>
+  </div>
+  <br><br/>
+
+  <ng-template #counterTemplate let-buttonText="buttonText">
+    You have selected <span>{{ counter }}</span> items.
+    <button type="button">{{buttonText}}</button>
+  </ng-template>
+
+
+  <app-tab [links]="links"></app-tab>
+  ======================================
+  <app-tab-group>
+    <app-tab-panel title="Tab 1">content tab 1</app-tab-panel>
+    <app-tab-panel title="Tab 2">content tab 2</app-tab-panel>
+    <app-tab-panel title="Tab 3">content tab 3</app-tab-panel>
+    <!-- More tab panel -->
+  </app-tab-group>
+

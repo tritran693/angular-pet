@@ -1,0 +1,16 @@
+<div class="tab-header">
+    <button
+      *ngFor="let tab of tabPanelList; index as idx"
+      (click)="selectItem(idx)"
+    >
+      {{tab.title}}
+    </button>
+</div>
+  
+<div class="tab-body">
+<ng-container *ngFor="let tab of tabPanelList; index as idx">
+    <div *ngIf="idx === tabActiveIndex">
+        <ng-container *ngTemplateOutlet="tab.panelBody"></ng-container>
+    </div>
+</ng-container>
+</div>
